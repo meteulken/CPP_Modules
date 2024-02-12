@@ -11,6 +11,7 @@ Fixed triangleArea(Point a, Point b, Point c)
 {
     Fixed m(0.5f);
     Fixed area = m * abs((a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY())));
+    //Fixed area = m * abs((a.getX() * b.getY() + b.getX() * c.getY() + c.getX() * a.getY()) - (b.getX() * a.getY() + c.getX() * b.getY() + a.getX() * c.getY()));
     return area;
 }
 
