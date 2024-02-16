@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 08:41:20 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/16 08:41:21 by mulken           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
@@ -5,11 +17,6 @@
 
 class ScavTrap : public ClapTrap
 {
-    private:
-        std::string name;
-        int hitPoints; // Can Puanı
-        int energyPoints; // Enerji Puanı
-        int attackDamage; // Saldırı Hasarı
 
     public:
         ScavTrap(const std::string name);

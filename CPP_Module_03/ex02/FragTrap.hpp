@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 08:41:33 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/16 08:41:34 by mulken           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
@@ -7,11 +19,6 @@
 
 class FragTrap : ClapTrap
 {
-    private:
-        std::string name;
-        int hitPoints;
-        int energyPoints;
-        int attackDamage;
 
     public:
         FragTrap();

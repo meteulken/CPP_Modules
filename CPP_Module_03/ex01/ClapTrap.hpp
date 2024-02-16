@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:09 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 05:18:10 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/16 08:41:03 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         int hitPoint;       // Can Puanı
         int energyPoints;   // Enerji Puanı
         int attackDamage;   // Saldırı Hasarı

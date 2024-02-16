@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:15 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 05:18:16 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/16 08:36:18 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap()
 {
     name = "Default";
-    hitPoints = 100;
+    hitPoint = 100;
     energyPoints = 100;
     attackDamage = 30;
     std::cout << "FragTrap is created!" << std::endl;
@@ -24,7 +24,7 @@ FragTrap::FragTrap()
 FragTrap::FragTrap(std::string _name)
 {
     name = _name;
-    hitPoints = 100;
+    hitPoint = 100;
     energyPoints = 100;
     attackDamage = 30;
     std::cout << "FragTrap is created!" << std::endl;
@@ -38,7 +38,7 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
     this->name = other.name;
-    this->hitPoints = other.hitPoints;
+    this->hitPoint = other.hitPoint;
     this->attackDamage = other.attackDamage;
     this->energyPoints = other.energyPoints;
 
@@ -49,7 +49,7 @@ FragTrap FragTrap::operator=(const FragTrap &other)
     if(this != &other)
     {
         this->name = other.name;
-        this->hitPoints = other.hitPoints;
+        this->hitPoint = other.hitPoint;
         this->attackDamage = other.attackDamage;
         this->energyPoints = other.energyPoints;
     }

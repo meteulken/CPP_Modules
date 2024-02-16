@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 08:41:26 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/16 08:41:27 by mulken           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
@@ -5,7 +17,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         int hitPoint;       // Can Puanı
         int energyPoints;   // Enerji Puanı
         int attackDamage;   // Saldırı Hasarı

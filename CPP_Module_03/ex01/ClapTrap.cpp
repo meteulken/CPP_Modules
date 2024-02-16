@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/16 08:40:51 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/16 08:40:58 by mulken           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
@@ -8,7 +20,7 @@ ClapTrap::ClapTrap()
     this->attackDamage = 0;
     std::cout << "ClapTrap " << name << " is created!" << std::endl;
 }
-
+        
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << name << " is destroyed!" << std::endl;
