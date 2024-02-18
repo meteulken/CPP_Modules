@@ -6,12 +6,11 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:12 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/18 18:03:17 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:32:02 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
 
 ScavTrap::ScavTrap() : ClapTrap(name)
 {
@@ -30,9 +29,16 @@ ScavTrap::ScavTrap(const std::string name)
 void ScavTrap::attack(const std::string& target) 
 {
     if(energyPoints < 0)
-        return ;
-    hitPoint -= attackDamage;
-    energyPoints--;
+    {
+		std::cout << "No energy points left" <<std::endl;
+        return ;     
+    }
+    if(hitPoint < 0)
+    {
+		std::cout << "No hit points left" <<std::endl;
+        return ;     
+    } 
+    this->energyPoints--;
     std::cout << "Scavtrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage!" << std::endl;
 	std::cout << "ScavTrap " << name << " has now " << hitPoint << " points of life and " << energyPoints << " points of energy" << std::endl;
 }
@@ -51,15 +57,14 @@ ScavTrap ScavTrap::operator=(const ScavTrap &other)
         this->hitPoint = other.hitPoint;
         this->name = other.name;
     }
+	std::cout << "ScavTrap Copy assignment operator called"<< std::endl;
     return *this;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-    this->attackDamage = other.attackDamage;
-    this->energyPoints = other.energyPoints;
-    this->hitPoint = other.hitPoint;
-    this->name = other.name;
+    std::cout << "ScavTrap Copy Constructor  called"<< std::endl;
+    *this = other;
 }
 
 void ScavTrap::guardGate()

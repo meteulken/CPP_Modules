@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:15 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/18 18:10:42 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:37:08 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
-    this->name = other.name;
-    this->hitPoint = other.hitPoint;
-    this->attackDamage = other.attackDamage;
-    this->energyPoints = other.energyPoints;
-
+    *this = other;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 FragTrap FragTrap::operator=(const FragTrap &other)
@@ -53,6 +50,7 @@ FragTrap FragTrap::operator=(const FragTrap &other)
         this->attackDamage = other.attackDamage;
         this->energyPoints = other.energyPoints;
     }
+    std::cout << "Copy assignation operator called" << std::endl;
     return (*this);
 }
 
@@ -61,13 +59,7 @@ void FragTrap::highFivesGuys(void)
     std::cout << "FragTrap " << getName() << " requests a high five!" << std::endl;
 }
 
-void FragTrap::attack(const std::string& target)
+std::string FragTrap::getName()
 {
-    if(energyPoints < 0)
-        return ;
-    std::cout << "FragTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage!" << std::endl;
-    hitPoint -= attackDamage;
-    energyPoints--;
-    std::cout << "FragTrap " << name << " has now " << hitPoint << " points of life and " << energyPoints << " points of energy" << std::endl;
-
+    return(name);
 }
