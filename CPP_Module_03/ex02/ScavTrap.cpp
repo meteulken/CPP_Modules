@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:18 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 08:41:40 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:14:45 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ ScavTrap ScavTrap::operator=(const ScavTrap &other)
         this->hitPoint = other.hitPoint;
         this->name = other.name;
     }
+    std::cout << "Assignation operator called" << std::endl;
     return *this;
 }
 
@@ -55,6 +56,7 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
     this->energyPoints = other.energyPoints;
     this->hitPoint = other.hitPoint;
     this->name = other.name;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 void ScavTrap::guardGate()

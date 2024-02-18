@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:05 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 05:18:06 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/18 17:59:15 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     this->attackDamage = other.attackDamage;
     this->hitPoint = other.hitPoint;
     this->energyPoints = other.energyPoints;
-    std::cout << "ClapTrap " << name << " is created!" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
+    
     if(this != &other)
     {
         this->name = other.name;
@@ -44,6 +45,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
         this->hitPoint = other.hitPoint;
         this->energyPoints = other.energyPoints;
     }
+    std::cout << "Assignation operator called" << std::endl;
     return *this;
 }
 
@@ -63,6 +65,8 @@ void ClapTrap::attack(const std::string& target)
     std::cout << "ClapTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage!" << std::endl;
     hitPoint -= attackDamage;
     energyPoints--;
+    std::cout << "ClapTrap " << name << " has now " << hitPoint << " points of life and " << energyPoints << " points of energy" << std::endl;
+
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:41:33 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 08:41:34 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/18 18:09:54 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <iostream>
 
-class FragTrap : ClapTrap
+class FragTrap : public ClapTrap
 {
 
     public:
