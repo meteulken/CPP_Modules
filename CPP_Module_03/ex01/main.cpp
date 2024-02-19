@@ -6,11 +6,10 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:41:15 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/16 08:41:16 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:37:11 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main()

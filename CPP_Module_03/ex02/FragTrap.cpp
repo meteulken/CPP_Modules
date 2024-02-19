@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:15 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/18 18:37:08 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/19 15:50:21 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 FragTrap::FragTrap()
 {
-    name = "Default";
-    hitPoint = 100;
-    energyPoints = 100;
-    attackDamage = 30;
+    this->name = "Default";
+    this->hitPoint = 100;
+    this->energyPoints = 100;
+    this->attackDamage = 30;
     std::cout << "FragTrap is created!" << std::endl;
 }
 
 FragTrap::FragTrap(std::string _name)
 {
-    name = _name;
-    hitPoint = 100;
-    energyPoints = 100;
-    attackDamage = 30;
+    this->name = _name;
+    this->hitPoint = 100;
+    this->energyPoints = 100;
+    this->attackDamage = 30;
     std::cout << "FragTrap is created!" << std::endl;
 }
 
