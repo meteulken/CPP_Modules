@@ -6,13 +6,13 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 05:18:12 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/19 15:04:19 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/20 16:47:47 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap(name)
+ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ScavTrap  is created!" << std::endl;
     this->name = "Default";
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() : ClapTrap(name)
     this->attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string name)
+ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 {
     this->name = name;
     this->hitPoint = 100;
@@ -52,7 +52,7 @@ ScavTrap::~ScavTrap()
     std::cout << "ScavTrap " << name << " is destroyed!" << std::endl;
 }
 
-ScavTrap ScavTrap::operator=(const ScavTrap &other)
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
     if(this != &other)
     {
@@ -65,7 +65,7 @@ ScavTrap ScavTrap::operator=(const ScavTrap &other)
     return *this;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap &other)
 {
     std::cout << "ScavTrap Copy Constructor  called"<< std::endl;
     *this = other;
@@ -73,11 +73,6 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "**Attention!** ScavTrap " << getName() << " is now in Gatekeeper mode!" << std::endl;
+    std::cout << "**Attention!** ScavTrap " << name << " is now in Gatekeeper mode!" << std::endl;
 
-}
-
-std::string ScavTrap::getName()
-{
-    return(name);
 }

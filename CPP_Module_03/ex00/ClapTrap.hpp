@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:40:40 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/18 18:20:31 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/20 13:49:08 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class ClapTrap
 {
     private:
-        int hitPoint;       // Can Puanı
-        int energyPoints;   // Enerji Puanı
-        int attackDamage;   // Saldırı Hasarı
-        std::string name;   // İsim
+        int hitPoint;
+        int energyPoints;
+        int attackDamage;
+        std::string name;
     public:
         ClapTrap();
         ClapTrap(std::string _name);
