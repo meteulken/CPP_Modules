@@ -4,17 +4,18 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main(void) {
-  AAnimal *animals[20];
+int main(void)
+{
+    AAnimal *generic;
+    Cat cat;
+    Dog dog;
 
-  for (int i = 0; i < 20; i++) {
-    if (i < 10) animals[i] = new Dog();
-    if (i >= 10) animals[i] = new Cat();
-  }
+    generic = &cat;
+    std::cout << generic->getType() << std::endl;
+    generic->makeSound();
+    generic = &dog;
+    std::cout << generic->getType() << std::endl;
+    generic->makeSound();
 
-  for (int i = 0; i < 20; i++) {
-    delete animals[i];
-  }
-
-  return 0;
+    return 0;
 }

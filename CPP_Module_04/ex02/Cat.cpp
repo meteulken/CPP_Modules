@@ -13,7 +13,7 @@ Cat::~Cat()
     delete brain;
 }
 
-Cat::Cat(const Cat &other) : Animal(other)
+Cat::Cat(const Cat &other) : AAnimal(other)
 {
     brain = new Brain(*other.brain);
 }
