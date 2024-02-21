@@ -1,31 +1,31 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     type = "Default";
     std::cout << "Animal is created!" << std::endl;
 
 }
 
-Animal::Animal(std::string _type)
+AAnimal::AAnimal(std::string _type)
 {
     type = _type;
     std::cout << "Animal "<< type <<" is created!" << std::endl;
 
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
     std::cout << "Animal is destroyed!" << std::endl;
 
 }
 
-Animal::Animal(const Animal &other)
+AAnimal::AAnimal(const AAnimal &other)
 {
     *this = other;
 }
 
-Animal Animal::operator=(const Animal &other)
+AAnimal &AAnimal::operator=(const AAnimal &other)
 {
     if(this != &other)
     {
@@ -34,17 +34,17 @@ Animal Animal::operator=(const Animal &other)
     return *this;
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
     std::cout << "Animal Sound!" << std::endl;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
     return(type);
 }
 
-void Animal::setType(std::string _type)
+void AAnimal::setType(std::string _type)
 {
     this->type = _type;
 }

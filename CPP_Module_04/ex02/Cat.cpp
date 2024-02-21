@@ -4,16 +4,18 @@ Cat::Cat()
 {
     std::cout << "Cat is created!" << std::endl;
     this->type = "Cat";
+    brain = new Brain();
 }
 
 Cat::~Cat()
 {
     std::cout << "Cat is destroyed!" << std::endl;
+    delete brain;
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
-    *this = other;
+    brain = new Brain(*other.brain);
 }
 
 Cat &Cat::operator=(const Cat &other)

@@ -19,6 +19,7 @@ class Animal
         std::string getType() const;
         void setType(std::string _type);
         
+
 };
 
 #endif

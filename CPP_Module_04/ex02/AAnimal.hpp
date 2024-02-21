@@ -4,21 +4,22 @@
 #include <iostream>
 #include "Brain.hpp"
 
-class Animal
+class AAnimal
 {
     protected:
         std::string type;
 
     public:
-        virtual void makeSound() const;
-        Animal();
-        Animal(std::string);
-        Animal(const Animal &other);
-        Animal operator=(const Animal &other);
-        virtual ~Animal();
+        virtual void makeSound() const = 0;
+        AAnimal();
+        AAnimal(std::string);
+        AAnimal(const AAnimal &other);
+        AAnimal &operator=(const AAnimal &other);
+        virtual ~AAnimal();
         std::string getType() const;
         void setType(std::string _type);
         
+
 };
 
 #endif
