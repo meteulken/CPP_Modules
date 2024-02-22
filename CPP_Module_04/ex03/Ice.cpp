@@ -1,22 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/22 09:26:41 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/22 09:26:42 by mulken           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Ice.hpp"
 
-Ice::Ice()
+Ice::Ice() 
 {
-    _type = "ice";
+    type = "ice"; 
 }
 
-Ice::~Ice()
+Ice::Ice(const Ice& other): AMateria(other)
 {
-    
+    *this = other;
 }
 
-Ice* Ice::clone() const
+Ice& Ice::operator=(const Ice& other)
 {
-    Ice *ice2 = new Ice();
-    return ice2;
+    if(this != &other)
+        this->type = other.type;
+    return (*this);
 }
 
-void Ice::use(ICharacter&)
+Ice::~Ice() 
 {
-    std::cout << "* shoots an ice bolt at " << _type << "*" << std::endl;
+}
+
+Ice* Ice::clone() const 
+{ 
+    return new Ice(*this); 
+}
+
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
