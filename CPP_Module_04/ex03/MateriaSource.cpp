@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:26:55 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:26:56 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:17:20 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:17:21 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-    for (int i = 0; i < idx; i++) {
-        if (templates[i]) {
-            delete templates[i];
-            templates[i] = NULL;
-        }
-    }
-    if (m && idx < MAX_MATERIAS) {
+    if(idx < MAX_MATERIAS && m)
+    {
         this->templates[idx++] = m;
     }
 }

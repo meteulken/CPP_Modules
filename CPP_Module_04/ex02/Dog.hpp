@@ -5,27 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:27:29 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:27:30 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:16:17 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:16:18 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 #define DOG_HPP
+#include <iostream>
+#include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-#include "AAnimal.hpp"
-
-class Dog : public AAnimal
+class Dog : public Animal
 {
-private:
-    Brain* brain;
-
+	private:
+		Brain *brain;
+	protected:
+		std::string type;
 public:
-    Dog();
-    ~Dog();
-    void makeSound() const;
-    Dog(const Dog &other);
-    Dog &operator=(const Dog &other);
+	Dog();
+	Dog(const Dog& obj);
+	Dog &operator=(const Dog& obj);
+	
+	~Dog();
+	void makeSound()const;
+	std::string getType()const;
+	Brain	*getBrain() const;
+	
 };
+
 
 #endif

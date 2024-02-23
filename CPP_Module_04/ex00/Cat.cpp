@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:28:33 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:28:34 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:02:06 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:02:11 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,37 @@
 
 Cat::Cat()
 {
-    std::cout << "Cat is created!" << std::endl;
-    this->type = "Cat";
+	this->type = "Cat";
+	std::cout << "Cat default Constructor called" <<std::endl;
+}
+
+Cat::Cat(const Cat& obj) :Animal(obj)
+{
+	*this=obj;
+	std::cout << "Cat copy Constructor called" <<std::endl;
+}
+
+Cat &Cat::operator=(const Cat& obj)
+{
+	if(this != &obj)
+	{
+		this->type = obj.type;
+		
+	}
+	std::cout << "Cat copy assignment operator called" <<std::endl;
+	return *this;
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat is destroyed!" << std::endl;
+	std::cout << "Cat destructor called" <<std::endl;
 }
-
-Cat::Cat(const Cat &other) : Animal(other)
-{
-    *this = other;
-}
-
-Cat &Cat::operator=(const Cat &other)
-{
-    if(this != &other)
-    {
-        this->setType(other.getType());
-    }
-    return *this;
-}
-
 void Cat::makeSound() const
 {
-    std::cout << "Meow meow!" << std::endl;
+	std::cout << "Cat makes sound meows" <<std::endl;
+}
+
+std::string Cat::getType()const
+{
+	return this->type;
 }

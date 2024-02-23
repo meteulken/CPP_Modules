@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:28:45 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:28:46 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:02:33 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:02:35 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,38 @@
 
 WrongAnimal::WrongAnimal()
 {
-    _type = "Animal";
-    std::cout << "WrongAnimal is created!" << std::endl;
+	this->type = "WrongAnimal";
+	std::cout << "WrongAnimal default Constructor called" <<std::endl;
 }
+
+WrongAnimal::WrongAnimal(const WrongAnimal& obj) 
+{
+	*this=obj;
+	std::cout << "WrongAnimal copy Constructor called" <<std::endl;
+}
+
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal& obj)
+{
+	if(this != &obj)
+	{
+		this->type = obj.type;
+		
+	}
+	std::cout << "WrongAnimal copy assignment operator called" <<std::endl;
+	return *this;
+}
+
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal is destroyed!" << std::endl;
-}
-WrongAnimal::WrongAnimal(const WrongAnimal &other)
-{
-    *this = other;
-    std::cout << "Copy constructor called!" << std::endl;
-}
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
-{
-    if(this != &other)
-    {
-        this->_type = other._type;
-    }
-    std::cout << "Copy operator constructor called!" << std::endl;
-    return *this;
+	std::cout << "WrongAnimal destructor called" <<std::endl;
 }
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "Wrong sound!" << std::endl;
+	std::cout << "WrongAnimal makes sound wooooo" <<std::endl;
 }
 
-std::string WrongAnimal::getType() const
+std::string WrongAnimal::getType()const
 {
-    return _type;
+	return this->type;
 }

@@ -5,27 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:27:52 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:27:53 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:15:13 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:15:15 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
-
+#ifndef BRAIN_CPP
+#define BRAIN_CPP
 #include <iostream>
-#include "Animal.hpp"
+#include <string>
+# include <cstdlib>
 
 class Brain
 {
-    private:
-        std::string ideas[100];
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain& obj);
-	    Brain &operator=(const Brain& obj);
-        std::string& getIdea(int index);
+public:
+	Brain();
+	Brain(const Brain& obj);
+	Brain &operator=(const Brain& obj);
+	~Brain();
+	void	getIdeas() const;
+	void	setIdeas(std::string *ideas);
+	std::string *getIdeaas();
+	// void	changeIdeas();
+	std::string	ideas[100];
 };
+
+
+
+
 
 #endif

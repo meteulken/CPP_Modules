@@ -5,27 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:27:22 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:27:23 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:16:11 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:16:12 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
+#include <iostream>
+#include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-#include "AAnimal.hpp"
-
-class Cat : public AAnimal
+class Cat : public Animal
 {
-private:
-    Brain* brain;
-
+	private:
+		Brain *brain;
+	protected:
+		std::string type;
 public:
-    Cat();
-    ~Cat();
-    void makeSound() const ;
-    Cat(const Cat &other);
-    Cat &operator=(const Cat &other);
+	Cat();
+	Cat(const Cat& obj);
+	Cat &operator=(const Cat& obj);
+	
+	~Cat();
+	void makeSound() const;
+	std::string getType()const;
+	Brain	*getBrain() const;
 };
+
 
 #endif

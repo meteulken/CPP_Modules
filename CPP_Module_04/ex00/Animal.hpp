@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:28:30 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:28:31 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:01:57 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:02:03 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CPP
-#define ANIMAL_CPP
-
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 #include <iostream>
-#include "Brain.hpp"
+#include <string>
 
 class Animal
 {
-    protected:
-        std::string type;
-
-    public:
-        virtual void makeSound() const;
-        Animal();
-        Animal(std::string);
-        Animal(const Animal &other);
-        Animal operator=(const Animal &other);
-        virtual ~Animal();
-        std::string getType() const;
-        void setType(std::string _type);
-        
+	protected:
+		std::string type;
+public:
+	Animal();
+	Animal(const Animal& obj);
+	Animal &operator=(const Animal& obj);
+	virtual ~Animal();
+	virtual void makeSound()const;
+	virtual std::string getType()const;
 };
+
 
 #endif

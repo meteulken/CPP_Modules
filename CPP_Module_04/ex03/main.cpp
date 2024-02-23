@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:26:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:26:52 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:17:11 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:17:13 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 int main()
 {
     IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());  // leak
-    src->learnMateria(new Cure()); // leak
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 
     ICharacter* me = new Character("me");
 
@@ -30,7 +30,7 @@ int main()
 
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    (void)tmp;
+
     ICharacter* bob = new Character("bob");
 
     me->use(0, *bob);
