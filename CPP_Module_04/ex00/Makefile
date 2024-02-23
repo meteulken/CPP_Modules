@@ -1,40 +1,19 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: smuhamma <smuhamma@student.42abudhabi.ae>  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/03 16:02:30 by smuhamma          #+#    #+#              #
-#    Updated: 2023/11/03 16:52:18 by smuhamma         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+name = Animal
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+CC = c++
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
-OBJ = $(SRC:.cpp=.o)
+src = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
-CXX = c++
+all: $(name)
 
-RM = rm -f
-
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-
-NAME = ex00
-
-%.o : %.cpp
-			$(CXX) $(CXXFLAGS) -c $< -o $@
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(OBJ) -o $@
+$(name): $(src)
+	$(CC) $(FLAGS) $(src) -o $(name)
 
 clean:
-	@$(RM) $(OBJ)
 
 fclean: clean
-		@$(RM) $(NAME) 
+	rm -f $(name)
 
 re: fclean all
 

@@ -1,28 +1,19 @@
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+name = Brain
 
-OBJ = $(SRC:.cpp=.o)
+CC = c++
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
-CXX = c++
+src = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
 
-RM = rm -f
+all: $(name)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-
-NAME = ex01
-
-%.o : %.cpp
-			$(CXX) $(CXXFLAGS) -c $< -o $@
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(OBJ) -o $@
+$(name): $(src)
+	$(CC) $(FLAGS) $(src) -o $(name)
 
 clean:
-	@$(RM) $(OBJ)
 
 fclean: clean
-		@$(RM) $(NAME) 
+	rm -f $(name)
 
 re: fclean all
 

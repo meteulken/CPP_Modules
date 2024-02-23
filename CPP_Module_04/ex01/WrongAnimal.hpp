@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 09:28:17 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/22 09:28:18 by mulken           ###   ########.fr       */
+/*   Created: 2024/02/23 04:02:37 by mulken            #+#    #+#             */
+/*   Updated: 2024/02/23 04:02:39 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
-
+#ifndef WRONGAnimal_HPP
+#define WRONGAnimal_HPP
 #include <iostream>
+#include <string>
 
 class WrongAnimal
 {
-    protected:
-        std::string _type;
-        std::string getType() const;
-    public:
-        WrongAnimal();
-        ~WrongAnimal();
-        WrongAnimal(const WrongAnimal &other);
-        WrongAnimal &operator=(const WrongAnimal &other);
-        void makeSound() const;
-
+	protected:
+		std::string type;
+public:
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal& obj);
+	WrongAnimal &operator=(const WrongAnimal& obj);
+	~WrongAnimal();
+	void makeSound()const;
+	std::string getType()const;
 };
+
 
 #endif
