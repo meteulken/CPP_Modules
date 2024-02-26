@@ -1,6 +1,37 @@
 # CPP_Modules
 CPP projects
 
+# C++ Nesne Yönelimli Programlama (OOP)
+
+Bu döküman, C++ programlama dilinde Nesne Yönelimli Programlama (OOP) konseptlerini anlatmaktadır.
+
+## OOP Nedir?
+
+Nesne Yönelimli Programlama (OOP), programlama paradigmasının bir türüdür. Bu paradigma, yazılımı nesnelerin bir araya gelmesiyle oluşturur ve her nesnenin birbirleriyle etkileşimde bulunmasına olanak tanır. OOP, kodun daha düzenli, anlaşılır ve yeniden kullanılabilir olmasını sağlar.
+
+## OOP'nin Temel İlkeleri
+
+C++ dilinde OOP'yi uygularken aşağıdaki temel ilkeleri göz önünde bulundurmalısınız:
+
+1. **Sınıflar ve Nesneler**: Sınıflar, veri yapılarını ve bu veri yapıları üzerinde işlemleri içeren bir şablondur. Nesneler ise bu sınıfların örnekleridir.
+
+   ```cpp
+   class Araba {
+   private:
+       string marka;
+       int modelYili;
+   public:
+       void setMarka(string m) {
+           marka = m;
+       }
+       void setModelYili(int yil) {
+           modelYili = yil;
+       }
+   };
+   
+   Araba araba1; // Araba sınıfından bir nesne oluşturuldu
+
+
 İmplementasyon: Abstract class, implementasyon içerebilirken, interface sadece imzaları içerir ve herhangi bir implementasyon sağlamaz.
 
 Miras Alma: Abstract class, diğer sınıflar tarafından genişletilebilirken, interface sadece başka sınıflar tarafından uygulanabilir.
