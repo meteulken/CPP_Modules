@@ -6,12 +6,17 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
+OBJ = $(SRC:.cpp=.o)
+
 all: $(name)
 
-$(name): $(SRC)
-	$(CC) $(FLAGS) $(SRC) -o $(name)
+$(name): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(name)
 
-clean:	
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
 	rm -f $(name)
 
 re: clean all
