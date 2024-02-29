@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:07:05 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/28 10:07:06 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/28 13:10:56 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,6 @@ void Bureaucrat::signForm(Form &form)
     }
     catch(const std::exception& e)
     {
-        std::cerr << this->getName() << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cerr << this->getName() << " couldn’t sign" << form.getName() << " because " << e.what() << std::endl;
     }
 }

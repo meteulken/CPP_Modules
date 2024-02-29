@@ -6,48 +6,51 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:07:21 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/28 10:07:27 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:01:56 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+
+/* ******************************************************************** */
+/*  NOT:        					          	   						*/
+/*  Bürokrat sınıfı, bir kişinin adını ve bir puanını içerir.  			*/
+/*  Form sınıfı ise bir formun adını, imzalı olup olmadığını,			*/
+/*  imzalamak için gerekli notu ve uygulamak için gereken notu içerir.	*/
+/* ******************************************************************** */
+
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Bureaucrat bureaucrat_1("Person1", 3);
-	Bureaucrat bureaucrat_2("Person2", 45);
-	std::cout << bureaucrat_1 << std::endl;
-	std::cout << bureaucrat_2 << std::endl;
-	/*-----------------------------------*/
-	Form form_1("Form_1", 5, 10);
-	std::cout << "-----------------------------------------------------------------------------" << std::endl;
-	std::cout << form_1 << std::endl;
-	std::cout << "-----------------------------------------------------------------------------" << std::endl;
-	/*-----------------------------------*/
-	try {
-		Form form_2("Form_1", 5499, 10);
+	{
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
+		Bureaucrat B("john", 39);
+		ShrubberyCreationForm A("target");
+		B.signAForm(A);
+		B.executeForm(A);
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
 	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+	{
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
+		Bureaucrat B("john", 19);
+		RobotomyRequestForm A("target");
+		B.signAForm(A);
+		B.executeForm(A);
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
 	}
-	/*-----------------------------------*/
-	try {
-		bureaucrat_1.signForm(form_1);
+	{
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
+		Bureaucrat B("john",3);
+		PresidentialPardonForm A("target");
+		B.signAForm(A);
+		B.executeForm(A);
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
 	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	/*-----------------------------------*/
-	std::cout << form_1 << std::endl;
-	/*-----------------------------------*/
-	try {
-		bureaucrat_2.signForm(form_1);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	/*-----------------------------------*/
-	std::cout << form_1 << std::endl;
-	return 0;
 }

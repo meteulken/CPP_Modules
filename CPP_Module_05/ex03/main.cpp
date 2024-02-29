@@ -6,12 +6,14 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:07:21 by mulken            #+#    #+#             */
-/*   Updated: 2024/02/28 13:15:16 by mulken           ###   ########.fr       */
+/*   Updated: 2024/02/28 19:34:04 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+
 
 /* ******************************************************************** */
 /*  NOT:        					          	   						*/
@@ -20,27 +22,26 @@
 /*  imzalamak için gerekli notu ve uygulamak için gereken notu içerir.	*/
 /* ******************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
+
+
 int main()
 {
-	Bureaucrat bureaucrat_1("Manager", 3);
-	Bureaucrat bureaucrat_2("Assistant", 43);
-	std::cout << bureaucrat_1 << std::endl;
-	std::cout << bureaucrat_2 << std::endl;
-
-	Form form_1("Form_1", 5, 10); // Form_1'in imzalanması için 5, uygulanması için 10 puan gereklidir.
-	std::cout << "--------------------------------------" << std::endl;
-	std::cout << form_1 << std::endl;
-	std::cout << "--------------------------------------" << std::endl;
-	
-	Form form_2("Form_2", 5499, 10);
-	std::cout << "--------------------------------------" << std::endl;
-	
-	bureaucrat_1.signForm(form_1);
-
-	std::cout << form_1 << std::endl;
-	
-	bureaucrat_2.signForm(form_1);
-	
-	std::cout << form_1 << std::endl;
-	return 0;
+	{
+		std::string formName = "robotomy request"; 
+		std::string formTarget = "Gorms";
+		
+		Intern intern;
+		Bureaucrat bureaucrat("John", 1);
+		AForm *f = intern.makeForm(formName, formTarget);
+		std::cout << *f;
+		bureaucrat.signAForm(*f);
+		std::cout << (*f).getSigned() << std::endl;
+		bureaucrat.executeForm(*f);
+		delete f;
+	}
 }
