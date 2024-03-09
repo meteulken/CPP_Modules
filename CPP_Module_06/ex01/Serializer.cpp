@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 01:56:58 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:16:11 by mulken           ###   ########.fr       */
+/*   Created: 2024/03/09 15:57:53 by mulken            #+#    #+#             */
+/*   Updated: 2024/03/09 15:57:54 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int argc, char **argv)
+Serializer::Serializer()
 {
-    if(argc != 2)
+
+}
+
+Serializer::~Serializer()
+{
+    
+}
+
+Serializer::Serializer(Serializer const &src)
+{
+    *this = src;
+}
+
+Serializer &Serializer::operator=(Serializer const &rhs)
+{
+    if (this != &rhs)
     {
-        std::cout << "Wrong Argument" << std::endl;
-        return 0;
+        *this = rhs;
     }
-    ScalarConverter a;
-    //a.setValue(argv[1]);
-    a.convert(argv[1]);
+    return *this;
 }

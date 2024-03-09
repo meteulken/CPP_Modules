@@ -5,21 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 01:56:58 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:16:11 by mulken           ###   ########.fr       */
+/*   Created: 2024/03/09 15:57:49 by mulken            #+#    #+#             */
+/*   Updated: 2024/03/09 15:57:51 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-    if(argc != 2)
-    {
-        std::cout << "Wrong Argument" << std::endl;
-        return 0;
-    }
-    ScalarConverter a;
-    //a.setValue(argv[1]);
-    a.convert(argv[1]);
+    Serializer s;
+    //s.serializer("test.txt", "Hello, World!");
+    //std::cout << s.deserializer("test.txt") << std::endl;
+    return 0;    
 }

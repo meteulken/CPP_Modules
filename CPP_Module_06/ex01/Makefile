@@ -1,9 +1,9 @@
-name = covert
+name = Serialization
 
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-src = main.cpp ScalarConverter.cpp
+src = main.cpp Serializer.cpp
 
 all: $(name)
 
