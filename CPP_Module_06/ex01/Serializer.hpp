@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 15:57:55 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:57:56 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/10 13:14:42 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 #include <cstdlib>
 #include <string>
 
-struct Data
+typedef struct Data
 {
-    std::string s1;
-    int n;
-    std::string s2;
-};
+    std::string name;
+    int age;
+}Data;
 
 class Serializer
 {
@@ -32,8 +31,8 @@ class Serializer
 		Serializer(Serializer const &object);
 		Serializer & operator=(Serializer const &rhs);
 		~Serializer();
-		static uintptr_t	serializer(Data *ptr);
-		static Data *deserializer(uintptr_t raw);
+		uintptr_t	serialize(Data *ptr);
+		Data *deserialize(uintptr_t raw);
 };
 
 #endif

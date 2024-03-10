@@ -6,16 +6,23 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 15:57:49 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:57:51 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/10 13:16:00 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+#include <iostream>
 
-int main()
+int	main()
 {
-    Serializer s;
-    //s.serializer("test.txt", "Hello, World!");
-    //std::cout << s.deserializer("test.txt") << std::endl;
-    return 0;    
+	Serializer	seri;
+	Data *serialized = new Data;
+	serialized->name = "jon";
+	serialized->age = 30;
+	uintptr_t i = seri.serialize(serialized);
+	std::cout << "i: " << i << std::endl;
+	Data	*deserialized = seri.deserialize(i);
+	std::cout << "name: " << deserialized->name << std::endl;
+	std::cout << "age: " << deserialized->age << std::endl;
+	delete serialized;
 }
