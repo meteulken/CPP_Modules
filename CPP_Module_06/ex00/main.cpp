@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 01:56:58 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:16:11 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/11 19:05:15 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int main(int argc, char **argv)
         return 0;
     }
     ScalarConverter a;
-    //a.setValue(argv[1]);
     a.convert(argv[1]);
 }

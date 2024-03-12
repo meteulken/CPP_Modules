@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 01:57:01 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/09 15:47:26 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/11 22:01:35 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,32 @@ void ScalarConverter::toChar(std::string str)
     char *endptr;
     char a = std::strtol(str.c_str(), &endptr, 10);
     a = static_cast<char>(a);
+    if(isprint(a) && a != 0)
+    {
+        std::cout << "Char: '" << a << "'" << std::endl;
+        return;
+    }
+    if(a == 0 && str[0] == '0')
+    {
+        std::cout << "Char: Non displayable" << std::endl;
+        return;
+    }
+    if(isprint(a))
+    {
+        std::cout << "Char: '" << a << "'" << std::endl;
+        return;
+    }
     if (*endptr != '\0') 
     {
         if (a >= 32 && a <= 126)
         {
-            std::cout << "Char value: " << a << std::endl;
+            std::cout << "Char: '" << a << "'" << std::endl;
         }
         else
         {
             std::cout << "char: impossible" << std::endl;
         }
-    } 
+    }
     else 
     {
         std::cerr << "Char: Non displayable" << std::endl;
@@ -113,13 +128,18 @@ void ScalarConverter::toInt(std::string str)
         std::cout << "int: " << a << std::endl;
         return;
     }
+    if(isdigit(str[0]) && str[0] != '0')
+    {
+        std::cout << "int: " << a << std::endl;
+        return;
+    }
     if (*endptr != '\0') 
     {
-        std::cout << "Integer value: " << a << std::endl;
+        std::cout << "int: " << a << std::endl;
     } 
     else 
     {
-        std::cerr << "nan" << std::endl;
+        std::cerr << "int : nan" << std::endl;
     }
 }
 

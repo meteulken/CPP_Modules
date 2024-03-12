@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 02:19:13 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/11 02:19:16 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/11 20:21:46 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,22 @@ void identify(Base& p)
 {
 	try
 	{
-		A	&a = dynamic_cast<A&>(p);
+		A 	&a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << green << "&P points to type A\n" << reset;
 	}
 	catch(const std::exception& e){}
 	try
 	{
 		B	&b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << green << "&P points to type B\n" << reset;
 	}
 	catch(const std::exception& e){}
 	try
 	{
 		C	&c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << green << "&P points to type C\n" << reset;
 	}
 	catch(const std::exception& e){}

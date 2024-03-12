@@ -1,15 +1,14 @@
 NAME = identifier
 
-SRC = ${shell echo *.cpp}
+SRC = main.cpp AllClasses.cpp
 
-OBJ = $(patsubst %.cpp, %.o, $(SRC))
+OBJ = ${SRC:.cpp=.o}
 
-HEADER = ${shell echo *.hpp}
+HEADER = AllClasses.hpp
 
 CC =  c++
 
-FLAGS = -Werror -Wextra -Wall -std=c++98 -pedantic #-Wshadow -Wno-shadow
-
+FLAGS = -Werror -Wextra -Wall -std=c++98
 all: $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER)
