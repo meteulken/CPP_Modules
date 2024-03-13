@@ -1,17 +1,13 @@
 NAME = whatever
 
-SRCS = whatever.cpp
-
-OBJS = $(SRCS:.cpp=.o)
+SRCS = main.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	clang++ $(FLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.cpp
+$(NAME):
+	clang++ $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
