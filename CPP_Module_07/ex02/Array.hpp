@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 13:50:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/16 13:50:52 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/19 14:28:18 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <cstdlib>
 
-
-template <typename T>
+template <class T>
 class Array
 {
     public:
         Array()
         {
             _arr = new T[0];
-            _size = 0;
         }
         Array(unsigned int n)
         {
