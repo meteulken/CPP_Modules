@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/24 04:22:41 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/24 04:43:17 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,30 @@ void BitcoinExchange::open_file(std::string argv)
 }
 
 std::string BitcoinExchange::split_string(const std::string& str, char delim) {
+    int xpos = 0;
+    if(str.find(' ') != std::string::npos)
+        xpos = 1;
+    else
+        xpos = 0;
     size_t pos = str.find(delim);
     if (pos == std::string::npos) {
         return str; // Delim bulunamazsa tüm stringi geri döndür
     }
-    return str.substr(0, pos); 
+    return str.substr(xpos, pos); 
 }
 
-std::string BitcoinExchange::split_string_after(const std::string& str, char delim) {
+std::string BitcoinExchange::split_string_after(const std::string& str, char delim) 
+{
+    int xpos = 1;
+    if(str.find('|') != std::string::npos)
+        xpos = 2;
     size_t pos = str.find(delim);
     if (pos == std::string::npos) {
-        return ""; // Delim bulunamazsa boş bir string döndür
+        return str; // Delim bulunamazsa tüm stringi geri döndür
     }
-    return str.substr(pos + 1); // Delimden sonraki kısmı geri döndür
+    str.substr(pos + xpos);
+    std::cout << str.substr(pos + xpos) << std::endl;
+    return str;
 }
 
 std::string BitcoinExchange::read_data(std::fstream& my_file)
@@ -62,16 +73,17 @@ std::string BitcoinExchange::read_data(std::fstream& my_file)
     std::string str2;
     double value = 0.0;;
     int i = 0;
-    while (i++ < 1000)
+    while (i++ < 10)
     {
         std::getline(my_file, str, '\n');
         if(isdigit(str[0]) == false)
         {
             continue;
         }
-        str2 = split_string_after(str, ',');
-        str = split_string(str, ',');
+        str2 = split_string_after(str, '|');
+        str = split_string(str, '|');
         value = std::stod(str2);
+        //std::cout << str << " " << str2 << std::endl;
         container_map(str, value);
     }
     return str;
