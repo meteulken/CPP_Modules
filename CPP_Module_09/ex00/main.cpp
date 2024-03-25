@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:04:00 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/24 04:25:44 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/24 12:54:51 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int main(int argc,char **argv)
     }
     BitcoinExchange bs;
     bs.open_file(argv[1]);
-    
+
+
+    return 0;
 }

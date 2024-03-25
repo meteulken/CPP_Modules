@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/24 04:43:17 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/25 03:05:23 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,79 +22,140 @@ BitcoinExchange::~BitcoinExchange()
     
 }
 
-void BitcoinExchange::open_file(std::string argv)
+int BitcoinExchange::open_file(std::string argv)
 {
-    std::fstream my_file;
+    std::ifstream data_file;
+    std::ifstream input_file;
     std::string str;
-    std::map<std::string, double> map;
     int i = 0;
-    my_file.open(argv,std::ios::in);
-    if(!my_file)
+    data_file.open("data2.csv");
+    if(!data_file.is_open())
     {
         std::cerr << "File Error!" << std::endl;
+        return -1;
     }
     else
     {
         std::cout << "File opened successfully!" << std::endl;
-        read_data(my_file);
+        read_data(data_file);
     }
+    // --------------------- //
+    input_file.open(argv);
+    if(!input_file)
+    {
+        std::cerr << "File Error!" << std::endl;
+        return -1;
+    }
+    else
+    {
+        std::cout << "File opened successfully!" << std::endl;
+        read_input(input_file);
+    }
+    
+    data_file.close();
+    input_file.close();
+    return 0;
 }
 
 std::string BitcoinExchange::split_string(const std::string& str, char delim) {
     int xpos = 0;
-    if(str.find(' ') != std::string::npos)
-        xpos = 1;
-    else
-        xpos = 0;
+    //std::cout << "str: " << str << std::endl;
     size_t pos = str.find(delim);
     if (pos == std::string::npos) {
-        return str; // Delim bulunamazsa tüm stringi geri döndür
+        return str;
     }
-    return str.substr(xpos, pos); 
+    //std::cout << str.substr(0, pos + 1) << std::endl;
+    if(str[pos + 1] == ' ')
+    {
+        return str.substr(0, pos - 1);
+    }
+    return str.substr(0, pos); 
 }
 
 std::string BitcoinExchange::split_string_after(const std::string& str, char delim) 
 {
-    int xpos = 1;
-    if(str.find('|') != std::string::npos)
-        xpos = 2;
+    int xpos = 0;
     size_t pos = str.find(delim);
     if (pos == std::string::npos) {
-        return str; // Delim bulunamazsa tüm stringi geri döndür
+        return str;
     }
-    str.substr(pos + xpos);
-    std::cout << str.substr(pos + xpos) << std::endl;
+    if (str[pos + 1] == ' ')
+    {
+        return str.substr(pos + 2);
+    }
+    return str.substr(pos + 1);
+}
+
+std::string BitcoinExchange::execute_data(std::string str)
+{
+    double data;
+    std::string str_left;
+    std::string str_right;
+
+    str_left = split_string(str, '|');
+    str_right = split_string_after(str, '|');
+    //std::cout << "str_left:" << str_left << "str_right:" << str_right << std::endl;
+    
+    auto it = this->data_map.find(str_left);
+    double value = 0.0;
+    if(it != this->data_map.end())
+    {
+        value = std::stod(str_right);
+        if(value > INT32_MAX)
+        {
+            std::cerr << "Value is too big!" << std::endl;
+            return str;
+        }
+        if(value < 0)
+        {
+            std::cerr << "Value is negative!" << std::endl;
+            return str;
+        }
+        data = it->second * value;
+        std::cout << str_left << " = " << data << std::endl;
+    }
+    
     return str;
 }
 
-std::string BitcoinExchange::read_data(std::fstream& my_file)
+
+std::string BitcoinExchange::read_input(std::ifstream& my_input)
 {
     std::string str;
-    std::string str2;
-    double value = 0.0;;
-    int i = 0;
-    while (i++ < 10)
+    std::cout << "---------------------" << std::endl;
+   
+    while(std::getline(my_input, str))
     {
-        std::getline(my_file, str, '\n');
+        execute_data(str);
+
+    }
+    return str;
+}
+
+std::string BitcoinExchange::read_data(std::ifstream& my_file)
+{
+    std::string str;
+    std::string str_left;
+    std::string str_right;
+    double value = 0.0;
+    int i = 0;
+    while (std::getline(my_file, str))
+    {
         if(isdigit(str[0]) == false)
         {
             continue;
         }
-        str2 = split_string_after(str, '|');
-        str = split_string(str, '|');
-        value = std::stod(str2);
-        //std::cout << str << " " << str2 << std::endl;
-        container_map(str, value);
+        str_left = split_string(str, ',');
+        str_right = split_string_after(str, ',');
+        value = std::stod(str_right);
+        container_map(str_left, value);
     }
+
     return str;
 }
 
+
 void BitcoinExchange::container_map(std::string str, double value)
 {
-    int i = 0;
-    std::map<std::string, double> map;
-    while(i++ < 1000)
-    {
-        map[str] = value;
-    }
+    this->data_map[str] = value;
 }
