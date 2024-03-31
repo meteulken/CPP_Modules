@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:54 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/30 07:43:06 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/30 07:47:10 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class BitcoinExchange
         int open_file(std::string argv);
         BitcoinExchange();
         ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &obj);
+        BitcoinExchange &operator=(const BitcoinExchange &obj);
 };
 
 #endif

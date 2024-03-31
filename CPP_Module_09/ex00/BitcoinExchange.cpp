@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/30 07:41:20 by mulken           ###   ########.fr       */
+/*   Updated: 2024/03/30 07:47:26 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ BitcoinExchange::BitcoinExchange()
 BitcoinExchange::~BitcoinExchange()
 {
 
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
+{
+    this->data_map = obj.data_map;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+    this->data_map = obj.data_map;
+    return *this;
 }
 
 int BitcoinExchange::date_control(std::string str)
