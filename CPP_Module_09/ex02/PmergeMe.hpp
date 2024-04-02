@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:57:17 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/01 06:33:11 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/02 02:12:54 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class PmergeMe
         std::vector<unsigned int> vec;
         PmergeMe();
         ~PmergeMe();
+        PmergeMe(const PmergeMe &other);
+        PmergeMe &operator=(const PmergeMe &other);
         void init(char** argv, int argc);
         void mergeList(int argc);
         void mergeVector(int argc);

@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:00:38 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/01 06:34:27 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/02 02:13:34 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,24 @@ PmergeMe::~PmergeMe()
 {
 }
 
+PmergeMe::PmergeMe(const PmergeMe &other)
+{
+    *this = other;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other)
+{
+    if (this != &other)
+    {
+        this->list = other.list;
+        this->vec = other.vec;
+    }
+    return *this;
+}
+
 void PmergeMe::init(char **argv, int argc)
 {
+    std::cout << "Before: ";
     for (int i = 1; argv[i]; i++)
     {
         std::string str(argv[i]);
@@ -41,14 +57,13 @@ void PmergeMe::init(char **argv, int argc)
             list.push_back(std::stoul(str));
             vec.push_back(std::stoul(str));
         }
+        std::cout << argv[i] << " ";
     }
     mergeList(argc);
     mergeVector(argc);
     }
 void PmergeMe::mergeList(int argc)
 {
-    std::cout << "Before merge: ";
-    printContainer(this->list);
 
     std::clock_t start = std::clock();
 
@@ -60,11 +75,11 @@ void PmergeMe::mergeList(int argc)
     
     double duration = static_cast<double>(std::clock() - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
 
-    std::cout << std::endl << "After merge: " ;
+    std::cout << std::endl << "After: " ;
 
     printContainer(list1);
 
-    std::cout << "Time to process a range of " << argc - 1 << " elements with std::list<unsigned int> : "
+    std::cout << std::endl << "Time to process a range of " << argc - 1 << " elements with std::list<unsigned int> : "
 			<< duration << " ms" << std::endl;
 }
 
@@ -137,8 +152,6 @@ std::list<unsigned int> PmergeMe::mergeSortList(std::list<unsigned int> &left, s
 
 void PmergeMe::mergeVector(int argc)
 {
-    std::cout << "Before merge: ";
-    printContainer(this->vec);
 
     std::clock_t start = std::clock();
     
@@ -149,10 +162,6 @@ void PmergeMe::mergeVector(int argc)
     std::clock_t end = std::clock();
     
     double duration = static_cast<double>(std::clock() - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
-    
-    std::cout << std::endl << "After merge: ";
-    
-    printContainer(vec1);
     
     std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector<unsigned int> : "
 			<< duration << " us" << std::endl;
