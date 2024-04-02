@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/30 07:47:26 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/02 11:39:47 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,56 +180,6 @@ std::string BitcoinExchange::read_input(std::string str)
     }
     return result;
 }
-std::string BitcoinExchange::split_string(const std::string& str, char delim) 
-{
-    int xpos = 0;
-    //std::cout << "str: " << str << std::endl;
-    size_t pos = str.find(delim);
-    if (pos == std::string::npos) {
-        return str;
-    }
-    //std::cout << str.substr(0, pos + 1) << std::endl;
-    if(str[pos + 1] == ' ')
-    {
-        return str.substr(0, pos - 1);
-    }
-    return str.substr(0, pos); 
-}
-
-std::string BitcoinExchange::split_string_after(const std::string& str, char delim) 
-{
-    int xpos = 0;
-    size_t pos = str.find(delim);
-    if (pos == std::string::npos) {
-        return str;
-    }
-    if (str[pos + 1] == ' ')
-    {
-        return str.substr(pos + 2);
-    }
-    return str.substr(pos + 1);
-}
-
-std::string BitcoinExchange::execute_data(std::string str)
-{
-    std::string str_left = split_string(str, '|');
-    std::string str_right = split_string_after(str, '|');
-
-    if(this->data_map.find(str_left) != this->data_map.end())
-    {
-        double value = this->data_map[str_left];
-        double value2 = atof(str_right.c_str());
-        
-        std::cout << str_left << " = " << value * value2 << std::endl;
-    }
-    else
-    {
-        std::cout << str_left << " = ?" << str_right<< std::endl;
-    }
-    return str;
-}
-
-
 
 std::string BitcoinExchange::read_data(std::ifstream& my_file)
 {
@@ -251,10 +201,4 @@ std::string BitcoinExchange::read_data(std::ifstream& my_file)
     }
 
     return str;
-}
-
-
-void BitcoinExchange::container_map(std::string str, double value)
-{
-   // this->data_map[str] = value;
 }
