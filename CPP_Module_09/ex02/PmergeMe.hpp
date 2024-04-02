@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:57:17 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/02 02:12:54 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/02 02:23:24 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@
 
 class PmergeMe
 {
-    public:
+    private:
         std::list<unsigned int> list;
         std::vector<unsigned int> vec;
+    
+    public:
         PmergeMe();
         ~PmergeMe();
         PmergeMe(const PmergeMe &other);
