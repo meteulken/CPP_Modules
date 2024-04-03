@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:03:51 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/02 11:39:47 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/03 06:16:24 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,6 @@ int BitcoinExchange::open_file(std::string argv)
         std::cout << "File opened successfully!" << std::endl;
         read_data(data_file);
     }
-    // --------------------- //
-    //input_file.open(argv);
     if(!input_file)
     {
         std::cerr << "File Error!" << std::endl;
@@ -184,8 +182,6 @@ std::string BitcoinExchange::read_input(std::string str)
 std::string BitcoinExchange::read_data(std::ifstream& my_file)
 {
     std::string str;
-    std::string str_left;
-    std::string str_right;
     double value = 0.0;
     int i = 0;
     getline(my_file, str);

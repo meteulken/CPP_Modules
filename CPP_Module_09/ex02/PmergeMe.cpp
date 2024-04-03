@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:00:38 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/02 02:13:34 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/03 06:15:19 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void PmergeMe::mergeList(int argc)
     
     std::clock_t end = std::clock();
     
-    double duration = static_cast<double>(std::clock() - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
+    double duration = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
 
     std::cout << std::endl << "After: " ;
 
@@ -161,7 +161,7 @@ void PmergeMe::mergeVector(int argc)
     
     std::clock_t end = std::clock();
     
-    double duration = static_cast<double>(std::clock() - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
+    double duration = static_cast<double>(end - start) / static_cast<double>(CLOCKS_PER_SEC) * 100000;
     
     std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector<unsigned int> : "
 			<< duration << " us" << std::endl;

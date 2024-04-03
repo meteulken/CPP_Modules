@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 07:46:46 by mulken            #+#    #+#             */
-/*   Updated: 2024/03/30 21:20:14 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/03 06:16:57 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ RPN::RPN(std::string &av)
 {
     std::stack<int> stack;
     std::stack<char> operators;
-    std::stack<char> temp;
-    std::stack<int> temp2;
 
     int i = 0;
     while (av[i])
@@ -76,22 +74,18 @@ void RPN::calculate(std::stack <int> &stack, std::stack <char> &operators)
     if(c == '+')
     {
         stack.push(x + y);
-        //std::cout << y << " + " << x << " = " << y + x << std::endl;
     }
     else if(c == '-')
     {
         stack.push(x - y);
-        //std::cout << y <<  " - " << x << " = " << y - x << std::endl;
     }
     else if(c == '*')
     {
         stack.push(x * y);
-        //std::cout << y << " * " << x << " = " << y * x << std::endl;
     }
     else if(c == '/')
     {
         stack.push(x / y);
-        //std::cout << y << " / " << x << " = " << y / x << std::endl;
     }
 }
 
