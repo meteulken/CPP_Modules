@@ -6,7 +6,7 @@
 /*   By: mulken <mulken@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:00:38 by mulken            #+#    #+#             */
-/*   Updated: 2024/04/03 06:15:19 by mulken           ###   ########.fr       */
+/*   Updated: 2024/04/03 16:51:43 by mulken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,8 @@ void PmergeMe::init(char **argv, int argc)
     for (int i = 1; argv[i]; i++)
     {
         std::string str(argv[i]);
-        std::istringstream iss(str);
-        unsigned int num;
-        while (iss >> num)
-        {
-            list.push_back(std::stoul(str));
-            vec.push_back(std::stoul(str));
-        }
+        list.push_back(std::stoul(str));
+        vec.push_back(std::stoul(str));
         std::cout << argv[i] << " ";
     }
     mergeList(argc);
